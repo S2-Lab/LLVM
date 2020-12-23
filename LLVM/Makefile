@@ -6,7 +6,6 @@ fuzzan:
 	(cd ${BUILD_DIR} && \
 	  CC=clang CXX=clang++ \
 	  cmake -G "Ninja"\
-	  -DFUZZAN_VERSION=${FUZZAN_MODE}\
 	  -DCMAKE_BUILD_TYPE=Release \
 	  -DCMAKE_C_COMPILER=clang \
 	  -DCMAKE_CXX_COMPILER=clang++ \
