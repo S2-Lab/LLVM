@@ -40,15 +40,15 @@ ln -s $src/clang-files/BackendUtil.cpp $clang/lib/CodeGen/BackendUtil.cpp
 #install llvm files
 rm $llvmpass/s2lab.cpp
 rm $llvm/include/llvm/InitializePasses.h
-rm $llvm/include/llvm/Transforms/Instrumentation.h
 rm $llvm/lib/Transforms/Utils/CMakeLists.txt
 rm $llvm/lib/Transforms/Instrumentation/CMakeLists.txt
+rm $llvm/include/llvm/Transforms/Instrumentation.h
 
 ln -s $src/llvm-files/s2lab.cpp $llvmpass
 ln -s $src/llvm-files/InitializePasses.h $llvminc
-ln -s $src/llvm-files/Instrumentation.h $llvm/include/llvm/Transforms/Instrumentation.h
 ln -s $src/llvm-files/UtilsCMakeLists.txt $llvm/lib/Transforms/Utils/CMakeLists.txt
 ln -s $src/llvm-files/InstrumentationCMakeLists.txt $llvm/lib/Transforms/Instrumentation/CMakeLists.txt
+ln -s $src/llvm-files/Instrumentation.h $llvm/include/llvm/Transforms/Instrumentation.h
 
 #include compiler-rt file
 rm $runtime/cmake/config-ix.cmake
