@@ -32,4 +32,5 @@ ln -s ../../compiler-rt .
 popd
 fi
 
+./scripts/install-s2lab-files.sh
 make -j
