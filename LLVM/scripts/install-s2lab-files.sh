@@ -38,17 +38,19 @@ ln -s $src/clang-files/CommonArgs.cpp $clang/lib/Driver/ToolChains/CommonArgs.cp
 ln -s $src/clang-files/BackendUtil.cpp $clang/lib/CodeGen/BackendUtil.cpp
 
 #install llvm files
-rm $llvmpass/s2lab.cpp
+rm $llvmpass/S2LabPass.cpp
 rm $llvm/include/llvm/InitializePasses.h
 rm $llvm/lib/Transforms/Utils/CMakeLists.txt
 rm $llvm/lib/Transforms/Instrumentation/CMakeLists.txt
 rm $llvm/include/llvm/Transforms/Instrumentation.h
+rm $llvm/lib/Transforms/Instrumentation/Instrumentation.cpp
 
-ln -s $src/llvm-files/s2lab.cpp $llvmpass
+ln -s $src/llvm-files/S2LabPass.cpp $llvmpass
 ln -s $src/llvm-files/InitializePasses.h $llvminc
 ln -s $src/llvm-files/UtilsCMakeLists.txt $llvm/lib/Transforms/Utils/CMakeLists.txt
 ln -s $src/llvm-files/InstrumentationCMakeLists.txt $llvm/lib/Transforms/Instrumentation/CMakeLists.txt
 ln -s $src/llvm-files/Instrumentation.h $llvm/include/llvm/Transforms/Instrumentation.h
+ln -s $src/llvm-files/Instrumentation.cpp $llvm/lib/Transforms/Instrumentation/Instrumentation.cpp
 
 #include compiler-rt file
 rm $runtime/cmake/config-ix.cmake
