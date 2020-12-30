@@ -32,18 +32,16 @@ namespace {
     static char ID;
     S2Lab() : ModulePass(ID) {}
 
-    virtual bool runOnModule(Module &M) {
+    bool runOnModule(Module &M) {
       return false;
     }
   };
-}
+}  // end anonymous namespace
 
 //register pass
-char S2Lab::ID = 0;
+char S2Lab::ID;
 
-INITIALIZE_PASS(S2Lab, "S2Lab", 
-                "S2LabPass: s2lab default pass",
-		false, false)
+INITIALIZE_PASS(S2Lab, "S2Lab", "S2LabPass: s2lab default pass", false, false)
 
 ModulePass *llvm::createS2LabPass() {
   return new S2Lab();

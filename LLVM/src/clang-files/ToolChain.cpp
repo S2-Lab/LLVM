@@ -1005,7 +1005,7 @@ SanitizerMask ToolChain::getSupportedSanitizers() const {
     Res |= SanitizerKind::CFIICall;
   if (getTriple().getArch() == llvm::Triple::x86_64 || getTriple().isAArch64()) {
     Res |= SanitizerKind::ShadowCallStack;
-    Res |= SanitizerKind::TypePlus;
+    Res |= SanitizerKind::S2Lab;
   }
 
   if (getTriple().isAArch64())
