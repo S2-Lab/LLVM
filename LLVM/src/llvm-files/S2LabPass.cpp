@@ -34,6 +34,7 @@ namespace {
     S2Lab() : ModulePass(ID) {}
 
     bool runOnModule(Module &M) {
+      llvm::errs() << "Hi S2Lab pass\n";
       return false;
     }
   };
