@@ -1003,8 +1003,11 @@ SanitizerMask ToolChain::getSupportedSanitizers() const {
       getTriple().getArch() == llvm::Triple::wasm32 ||
       getTriple().getArch() == llvm::Triple::wasm64 || getTriple().isAArch64())
     Res |= SanitizerKind::CFIICall;
-  if (getTriple().getArch() == llvm::Triple::x86_64 || getTriple().isAArch64())
+  if (getTriple().getArch() == llvm::Triple::x86_64 || getTriple().isAArch64()) {
     Res |= SanitizerKind::ShadowCallStack;
+    Res |= SanitizerKind::TypePlus;
+  }
+
   if (getTriple().isAArch64())
     Res |= SanitizerKind::MemTag;
   return Res;

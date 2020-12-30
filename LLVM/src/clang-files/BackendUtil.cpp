@@ -210,6 +210,12 @@ static void addBoundsCheckingPass(const PassManagerBuilder &Builder,
   PM.add(createBoundsCheckingLegacyPass());
 }
 
+static void addS2LabPass(const PassManagerBuilder &Builder,
+                                    PassManagerBase &PM) {
+  PM.add(createS2LabPass());
+}
+
+
 static SanitizerCoverageOptions
 getSancovOptsFromCGOpts(const CodeGenOptions &CGOpts) {
   SanitizerCoverageOptions Opts;
@@ -727,6 +733,14 @@ void EmitAssemblyHelper::CreatePasses(legacy::PassManager &MPM,
     PMBuilder.addExtension(PassManagerBuilder::EP_EnabledOnOptLevel0,
                            addDataFlowSanitizerPass);
   }
+
+  if (LangOpts.Sanitize.has(SanitizerKind::S2Lab)) { 
+    PMBuilder.addExtension(PassManagerBuilder::EP_ModuleOptimizerEarly,
+                           addS2LabPass);
+    PMBuilder.addExtension(PassManagerBuilder::EP_EnabledOnOptLevel0,
+                           addS2LabPass);
+  }
+
 
   // Set up the per-function pass manager.
   FPM.add(new TargetLibraryInfoWrapperPass(*TLII));
