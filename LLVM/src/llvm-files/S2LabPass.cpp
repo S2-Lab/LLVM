@@ -32,8 +32,28 @@ namespace {
   struct S2Lab : public ModulePass {
     static char ID;
     S2Lab() : ModulePass(ID) {}
+    
+    void addCallAfterLocal(Module &M){
+
+      LLVMContext& Ctx = M.getContext();
+      Type* VoidTy = Type::getVoidTy(Ctx);
+
+      for (Module::iterator F = M.begin(), E = M.end(); F != E; ++F) {
+        for (Function::iterator BB = F->begin(), E = F->end(); BB != E; ++BB)
+          for (BasicBlock::iterator i = BB->begin(),
+               ie = BB->end(); i != ie; ++i) {
+            if (AllocaInst *TargetAlloca = dyn_cast<AllocaInst>(i)) {
+              IRBuilder<> Builder(TargetAlloca);
+              if (FunctionCallee ObjUpdateFunction = M.getOrInsertFunction("s2lab", VoidTy))
+                Builder.CreateCall(ObjUpdateFunction);
+            }
+          }
+      }
+    }
 
     bool runOnModule(Module &M) {
+      //addCallAfterLocal(M);
+
       llvm::errs() << "Hi S2Lab pass\n";
       return false;
     }
