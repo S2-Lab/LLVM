@@ -1,0 +1,11 @@
+
+mk_add_options MOZ_OBJDIR=@TOPSRCDIR@/objdir-ff-ipcsan
+
+export CC=$(pwd)/../../LLVM/build/bin/clang
+export CXX=$(pwd)/../../LLVM/build/bin/clang++
+export AR=$(pwd)/../../LLVM/build/bin/llvm-ar
+export NM=$(pwd)/../../LLVM/build/bin/llvm-nm
+export RANLIB=$(pwd)/../../LLVM/build/bin/llvm-ranlib
+
+ac_add_options --enable-lto=cross
+

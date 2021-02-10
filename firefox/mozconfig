@@ -1,0 +1,54 @@
+mk_add_options MOZ_OBJDIR=@TOPSRCDIR@/objdir-ff-ipcsan
+
+#o Add ASan to our compiler flags
+
+#export CFLAGS="-fsanitize=ipcsan -fPIC -lstdc++ -ldl -mllvm -cast-obj-opt -mllvm -make-typeinfo -mllvm -make-loginfo -mllvm -create-cast-releated-type-list -mllvm -create-clang-typeinfo -mllvm -handle-placement-new"
+#export CXXFLAGS="-fsanitize=ipcsan -fPIC -lstdc++ -ldl -mllvm -cast-obj-opt -mllvm -make-typeinfo -mllvm -make-loginfo -mllvm -create-cast-releated-type-list -mllvm -create-clang-typeinfo -mllvm -handle-placement-new"
+#export LDFLAGS="-fsanitize=ipcsan -lstdc++ -ldl"
+
+export CC=$(pwd)/../../LLVM/build/bin/clang
+export CXX=$(pwd)/../../LLVM/build/bin/clang++
+export AR=$(pwd)/../../LLVM/build/bin/llvm-ar
+export NM=$(pwd)/../../LLVM/build/bin/llvm-nm
+export RANLIB=$(pwd)/../../LLVM/build/bin/llvm-ranlib
+
+export CFLAGS="-fsanitize=ipcsan -fPIC -lstdc++ -ldl -mllvm -cast-obj-opt -mllvm -make-typeinfo -mllvm -make-loginfo -mllvm -create-cast-releated-type-list -mllvm -create-clang-typeinfo -mllvm -handle-reinterpret-cast -mllvm -handle-placement-new"
+export CXXFLAGS="-fsanitize=ipcsan -fPIC -lstdc++ -ldl -mllvm -cast-obj-opt -mllvm -make-typeinfo -mllvm -make-loginfo -mllvm -create-cast-releated-type-list -mllvm -create-clang-typeinfo -mllvm -handle-reinterpret-cast -mllvm -handle-placement-new"
+export LDFLAGS="-fsanitize=ipcsan -lstdc++ -ldl"
+
+#export CFLAGS="-fno-plt"
+#-fsanitize=ipcsan -fPIC -lstdc++ -ldl -mllvm -cast-obj-opt -mllvm -make-typeinfo -mllvm -make-loginfo -mllvm -create-cast-releated-type-list -mllvm -create-clang-typeinfo -mllvm -handle-reinterpret-cast -mllvm -handle-placement-new"
+#export CXXFLAGS="-fno-plt"
+#-fsanitize=ipcsan -fPIC -lstdc++ -ldl -mllvm -cast-obj-opt -mllvm -make-typeinfo -mllvm -make-loginfo -mllvm -create-cast-releated-type-list -mllvm -create-clang-typeinfo -mllvm -handle-reinterpret-cast -mllvm -handle-placement-new"
+
+export HEXTYPE_LOG_PATH="/home/jeon41/Typesafety-IPC/firefox/firefox-log/"
+export TARGET_TYPE_LIST_CREATE_PATH="/home/jeon41/Typesafety-IPC/firefox/firefox-log/casting_obj.txt"
+export LLVM_SYMBOLIZER="/home/jeon41/Typesafety-IPC/LLVM/build/bin/llvm-symbolizer"
+
+# These three are required by ASan
+ac_add_options --disable-crashreporter
+ac_add_options --disable-elf-hack
+ac_add_options --disable-jemalloc
+
+# Keep symbols to symbolize ASan traces later
+export MOZ_DEBUG_SYMBOLS=1
+
+#ac_add_options --enable-release
+ac_add_options --enable-debug-symbols
+ac_add_options --disable-install-strip
+
+ac_add_options --enable-lto=cross
+#ac_add_options --enable-linker=gold
+#export RUSTFLAGS=-Clinker-plugin-lto
+#ac_add_options --enable-profile-use=cross
+#ac_add_options --with-pgo-profile-path=@TOPSRCDIR@/objdir-ff-ipcsan
+#ac_add_options --with-pgo-jarlog=${MOZ_OBJDIR}/jarlog
+
+# Settings for an opt build (preferred)
+# The -gline-tables-only ensures that all the necessary debug information for ASan
+# is present, but the rest is stripped so the resulting binaries are smaller.
+ac_add_options --enable-hardening
+ac_add_options --enable-optimize="-O2 -gline-tables-only"
+#ac_add_options --enable-optimize
+#ac_add_options --disable-debug
+ac_add_options --disable-tests
