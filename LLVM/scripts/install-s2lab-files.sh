@@ -44,6 +44,14 @@ rm $llvm/lib/Transforms/Utils/CMakeLists.txt
 rm $llvm/lib/Transforms/Instrumentation/CMakeLists.txt
 rm $llvm/include/llvm/Transforms/Instrumentation.h
 rm $llvm/lib/Transforms/Instrumentation/Instrumentation.cpp
+rm $llvm/lib/Transforms/IPO/PassManagerBuilder.cpp
+rm $llvm/utils/gn/secondary/llvm/lib/Transforms/IPO/BUILD.gn
+rm $llvm/lib/Transforms/IPO/CMakeLists.txt
+rm $llvm/lib/Transforms/IPO/IPO.cpp
+rm $llvm/lib/Passes/PassBuilder.cpp
+rm $llvm/lib/Passes/PassRegistry.def
+rm $llvm/lib/Transforms/IPO/IPCSanLTOPass.cpp
+rm $llvm/include/llvm/Transforms/IPO.h
 
 ln -s $src/llvm-files/S2LabPass.cpp $llvmpass
 ln -s $src/llvm-files/InitializePasses.h $llvminc
@@ -51,6 +59,14 @@ ln -s $src/llvm-files/UtilsCMakeLists.txt $llvm/lib/Transforms/Utils/CMakeLists.
 ln -s $src/llvm-files/InstrumentationCMakeLists.txt $llvm/lib/Transforms/Instrumentation/CMakeLists.txt
 ln -s $src/llvm-files/Instrumentation.h $llvm/include/llvm/Transforms/Instrumentation.h
 ln -s $src/llvm-files/Instrumentation.cpp $llvm/lib/Transforms/Instrumentation/Instrumentation.cpp
+ln -s $src/llvm-files/PassManagerBuilder.cpp $llvm/lib/Transforms/IPO/PassManagerBuilder.cpp
+ln -s $src/llvm-files/BUILD.gn $llvm/utils/gn/secondary/llvm/lib/Transforms/IPO/BUILD.gn
+ln -s $src/llvm-files/CMakeListsIPO.txt $llvm/lib/Transforms/IPO/CMakeLists.txt
+ln -s $src/llvm-files/IPO.cpp $llvm/lib/Transforms/IPO/IPO.cpp
+ln -s $src/llvm-files/PassBuilder.cpp $llvm/lib/Passes/PassBuilder.cpp
+ln -s $src/llvm-files/PassRegistry.def $llvm/lib/Passes/PassRegistry.def
+ln -s $src/llvm-files/IPCSanLTOPass.cpp $llvm/lib/Transforms/IPO/IPCSanLTOPass.cpp
+ln -s $src/llvm-files/IPO.h $llvm/include/llvm/Transforms/IPO.h
 
 #include compiler-rt file
 rm $runtime/cmake/config-ix.cmake
