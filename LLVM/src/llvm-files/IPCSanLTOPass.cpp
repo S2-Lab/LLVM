@@ -26,6 +26,8 @@
 #include "llvm/IR/Module.h"
 #include "llvm/IR/Operator.h"
 #include "llvm/Pass.h"
+#include "llvm/InitializePasses.h"
+#include "llvm/PassRegistry.h"
 #include "llvm/Support/Debug.h"
 #include "llvm/Support/raw_ostream.h"
 #include "llvm/Transforms/IPO.h"
@@ -45,6 +47,8 @@ struct IPCSanLTO : public ModulePass {
   }
 
   bool runOnModule(Module &M) {
+
+    llvm::errs() << "Hi LTO pass !" << "\n";
     if (skipModule(M))
       return false;
 
@@ -61,34 +65,6 @@ struct IPCSanLTO : public ModulePass {
           if (CallInst *call = dyn_cast<CallInst>(&I)) {
             int find = 0;
             Function *targetFun = call->getCalledFunction();
-            if (targetFun) {
-              if (targetFun->getAttributes().hasAttribute(AttributeList::FunctionIndex, Attribute::CFunction)) {
-                op = fopen("/tmp/test_log.txt","a");
-                if (op) {
-                  fprintf(op,"\t Call C Function: %s \n", targetFun->getName().str().c_str());
-                  fclose(op);
-                }
-                llvm::errs() << "\t Call C Function: " << targetFun->getName() << "\n";
-              }
-              else if (targetFun->getAttributes().hasAttribute(AttributeList::FunctionIndex, Attribute::RustFunction)) {
-                op = fopen("/tmp/test_log.txt","a");
-                if (op) {
-                  fprintf(op,"\t Call Rust Function: %s \n", targetFun->getName().str().c_str());
-                  fclose(op);
-                }
-                llvm::errs() << "\t Call Rust Function: " << targetFun->getName() << "\n";
-              }
-              else {
-                op = fopen("/tmp/test_log.txt","a");
-                if (op) {
-                  fprintf(op,"\t Call Unkonw Function: %s \n", targetFun->getName().str().c_str());
-                  fclose(op);
-                }
-                llvm::errs() << "\t Call Unknow Function: " << targetFun->getName() << "\n";
-              }
-            } else {
-              llvm::errs() << "\t did not find Function: ";
-            }
           }
     }
 

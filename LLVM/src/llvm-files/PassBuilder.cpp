@@ -100,6 +100,7 @@
 #include "llvm/Transforms/IPO/StripDeadPrototypes.h"
 #include "llvm/Transforms/IPO/SyntheticCountsPropagation.h"
 #include "llvm/Transforms/IPO/WholeProgramDevirt.h"
+#include "llvm/Transforms/IPO/IPCSanLTOPass.h"
 #include "llvm/Transforms/InstCombine/InstCombine.h"
 #include "llvm/Transforms/Instrumentation.h"
 #include "llvm/Transforms/Instrumentation/AddressSanitizer.h"
@@ -1325,6 +1326,8 @@ ModulePassManager PassBuilder::buildThinLTODefaultPipeline(
     MPM.addPass(LowerTypeTestsPass(nullptr, ImportSummary));
   }
 
+  MPM.addPass(IPCSanLTOPass());
+
   if (Level == OptimizationLevel::O0)
     return MPM;
 
@@ -1366,6 +1369,8 @@ PassBuilder::buildLTODefaultPipeline(OptimizationLevel Level, bool DebugLogging,
     MPM.addPass(LowerTypeTestsPass(nullptr, nullptr, true));
     return MPM;
   }
+
+  MPM.addPass(IPCSanLTOPass());
 
   if (PGOOpt && PGOOpt->Action == PGOOptions::SampleUse) {
     // Load sample profile before running the LTO optimization pipeline.
@@ -1424,6 +1429,8 @@ PassBuilder::buildLTODefaultPipeline(OptimizationLevel Level, bool DebugLogging,
   // Run whole program optimization of virtual call when the list of callees
   // is fixed.
   MPM.addPass(WholeProgramDevirtPass(ExportSummary, nullptr));
+
+  MPM.addPass(IPCSanLTOPass());
 
   // Stop here at -O1.
   if (Level == OptimizationLevel::O1) {

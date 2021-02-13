@@ -51,6 +51,7 @@ rm $llvm/lib/Transforms/IPO/IPO.cpp
 rm $llvm/lib/Passes/PassBuilder.cpp
 rm $llvm/lib/Passes/PassRegistry.def
 rm $llvm/lib/Transforms/IPO/IPCSanLTOPass.cpp
+rm $llvm/include/llvm/Transforms/IPO/IPCSanLTOPass.h
 rm $llvm/include/llvm/Transforms/IPO.h
 
 ln -s $src/llvm-files/S2LabPass.cpp $llvmpass
@@ -66,6 +67,7 @@ ln -s $src/llvm-files/IPO.cpp $llvm/lib/Transforms/IPO/IPO.cpp
 ln -s $src/llvm-files/PassBuilder.cpp $llvm/lib/Passes/PassBuilder.cpp
 ln -s $src/llvm-files/PassRegistry.def $llvm/lib/Passes/PassRegistry.def
 ln -s $src/llvm-files/IPCSanLTOPass.cpp $llvm/lib/Transforms/IPO/IPCSanLTOPass.cpp
+ln -s $src/llvm-files/IPCSanLTOPass.h $llvm/include/llvm/Transforms/IPO/IPCSanLTOPass.h
 ln -s $src/llvm-files/IPO.h $llvm/include/llvm/Transforms/IPO.h
 
 #include compiler-rt file

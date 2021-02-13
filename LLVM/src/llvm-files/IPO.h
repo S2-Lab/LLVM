@@ -254,6 +254,8 @@ ModulePass *createLowerTypeTestsPass(ModuleSummaryIndex *ExportSummary,
 /// This pass export CFI checks for use by external modules.
 ModulePass *createCrossDSOCFIPass();
 
+ModulePass *createIPCSanLTOPass();
+
 /// This pass implements whole-program devirtualization using type
 /// metadata.
 ///

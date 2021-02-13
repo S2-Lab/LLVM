@@ -926,6 +926,8 @@ void PassManagerBuilder::addLTOOptimizationPasses(legacy::PassManagerBase &PM) {
   // Apply whole-program devirtualization and virtual constant propagation.
   PM.add(createWholeProgramDevirtPass(ExportSummary, nullptr));
 
+  PM.add(createIPCSanLTOPass());
+
   // That's all we need at opt level 1.
   if (OptLevel == 1)
     return;
@@ -1098,6 +1100,8 @@ void PassManagerBuilder::populateThinLTOPassManager(
     PM.add(createLowerTypeTestsPass(nullptr, ImportSummary));
   }
 
+  PM.add(createIPCSanLTOPass());
+
   populateModulePassManager(PM);
 
   if (VerifyOutput)
@@ -1126,6 +1130,8 @@ void PassManagerBuilder::populateLTOPassManager(legacy::PassManagerBase &PM) {
   // Create a function that performs CFI checks for cross-DSO calls with targets
   // in the current module.
   PM.add(createCrossDSOCFIPass());
+
+  PM.add(createIPCSanLTOPass());
 
   // Lower type metadata and the type.test intrinsic. This pass supports Clang's
   // control flow integrity mechanisms (-fsanitize=cfi*) and needs to run at

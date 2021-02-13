@@ -30,6 +30,7 @@ static_library("IPO") {
     "CrossDSOCFI.cpp",
     "DeadArgumentElimination.cpp",
     "ElimAvailExtern.cpp",
+    "IPCSanLTOPass.cpp",
     "ExtractGV.cpp",
     "ForceFunctionAttrs.cpp",
     "FunctionAttrs.cpp",
