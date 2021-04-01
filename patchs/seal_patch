@@ -1,0 +1,51 @@
+diff --git a/LLVM/Makefile b/LLVM/Makefile
+index e528a53..c980ad6 100644
+--- a/LLVM/Makefile
++++ b/LLVM/Makefile
+@@ -9,6 +9,7 @@ fuzzan:
+ 	  -DCMAKE_BUILD_TYPE=Release \
+ 	  -DCMAKE_C_COMPILER=clang \
+ 	  -DCMAKE_CXX_COMPILER=clang++ \
++	  -DCMAKE_CXX_STANDARD=17 \
+ 	  -DLLVM_ENABLE_ASSERTIONS=OFF \
+ 	  -DCMAKE_EXPORT_COMPILE_COMMANDS=ON \
+           -DLLVM_BINUTILS_INCDIR="${BUILD_DIR}/../binutils/include" \
+diff --git a/LLVM/src/compiler-rt-files/lib_s2lab_cmakelists.txt b/LLVM/src/compiler-rt-files/lib_s2lab_cmakelists.txt
+index ae2fe3a..1f5f5b3 100644
+--- a/LLVM/src/compiler-rt-files/lib_s2lab_cmakelists.txt
++++ b/LLVM/src/compiler-rt-files/lib_s2lab_cmakelists.txt
+@@ -3,8 +3,13 @@ set(S2LAB_SOURCES
+   )
+ 
+ include_directories(..)
++set(S2LAB_CFLAGS ${SANITIZER_COMMON_CFLAGS} -fcxx-exceptions)
+ 
+-set(S2LAB_CFLAGS ${SANITIZER_COMMON_CFLAGS})
++add_definitions(-DSEAL_USE_CXX17=1)
++include_directories(/usr/local/include/SEAL-3.6/)
++set(CMAKE_CXX_STANDARD 17)
++find_package(SEAL 3.6.2 EXACT REQUIRED)
++target_link_libraries(SEAL::seal)
+ 
+ add_custom_target(s2lab)
+ 
+@@ -16,5 +21,4 @@ add_compiler_rt_runtime(clang_rt.s2lab
+         PARENT_TARGET s2lab)
+ 
+ add_sanitizer_rt_symbols(clang_rt.s2lab)
+-
+ add_dependencies(compiler-rt s2lab)
+diff --git a/LLVM/src/compiler-rt-files/s2lab.cc b/LLVM/src/compiler-rt-files/s2lab.cc
+index e3fde2a..66695ea 100644
+--- a/LLVM/src/compiler-rt-files/s2lab.cc
++++ b/LLVM/src/compiler-rt-files/s2lab.cc
+@@ -15,6 +15,9 @@
+ #include "ubsan/ubsan_platform.h"
+ 
+ #include "s2lab.h"
++#include <seal/seal.h>
++
++using namespace seal;
+ 
+ extern "C" SANITIZER_INTERFACE_ATTRIBUTE
+ void s2lab() {
