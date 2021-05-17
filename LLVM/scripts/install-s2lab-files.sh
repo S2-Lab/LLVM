@@ -29,31 +29,13 @@ rm $clang/lib/Driver/ToolChains/Darwin.cpp
 rm $clang/lib/Driver/ToolChains/CommonArgs.cpp
 rm $clang/lib/CodeGen/BackendUtil.cpp
 
-ln -s $src/clang-files/DeclCXX.cpp $clang/lib/AST/DeclCXX.cpp
-ln -s $src/clang-files/DeclCXX.h $clang/include/clang/AST/DeclCXX.h
 ln -s $src/clang-files/SanitizerArgs.h $clang/include/clang/Driver/SanitizerArgs.h
 ln -s $src/clang-files/Sanitizers.def $clang/include/clang/Basic/Sanitizers.def
 ln -s $src/clang-files/Features.def $clang/include/clang/Basic/Features.def
 ln -s $src/clang-files/ToolChain.cpp $clang/lib/Driver/ToolChain.cpp
 ln -s $src/clang-files/Darwin.cpp $clang/lib/Driver/ToolChains/Darwin.cpp
 ln -s $src/clang-files/CommonArgs.cpp $clang/lib/Driver/ToolChains/CommonArgs.cpp
-ln -s $src/clang-files/SemaDeclCXX.cpp $clang/lib/Sema/SemaDeclCXX.cpp
-ln -s $src/clang-files/SemaDecl.cpp $clang/lib/Sema/SemaDecl.cpp
-ln -s $src/clang-files/ASTContext.cpp $clang/lib/AST/ASTContext.cpp
 ln -s $src/clang-files/BackendUtil.cpp $clang/lib/CodeGen/BackendUtil.cpp
-ln -s $src/clang-files/CGExprScalar.cpp $clang/lib/CodeGen/CGExprScalar.cpp
-ln -s $src/clang-files/CodeGenModule.cpp $clang/lib/CodeGen/CodeGenModule.cpp
-ln -s $src/clang-files/CodeGenModule.h $clang/lib/CodeGen/CodeGenModule.h
-ln -s $src/clang-files/CGClass.cpp $clang/lib/CodeGen/CGClass.cpp
-ln -s $src/clang-files/CGExpr.cpp $clang/lib/CodeGen/CGExpr.cpp
-ln -s $src/clang-files/CGExprCXX.cpp $clang/lib/CodeGen/CGExprCXX.cpp
-ln -s $src/clang-files/CodeGenFunction.cpp $clang/lib/CodeGen/CodeGenFunction.cpp
-ln -s $src/clang-files/CodeGenFunction.h $clang/lib/CodeGen/CodeGenFunction.h
-ln -s $src/clang-files/CodeGenTypes.cpp $clang/lib/CodeGen/CodeGenTypes.cpp
-ln -s $src/clang-files/ItaniumCXXABI.cpp $clang/lib/CodeGen/ItaniumCXXABI.cpp
-ln -s $src/clang-files/Attr.td $clang/include/clang/Basic/Attr.td
-ln -s $src/clang-files/AttrDocs.td $clang/include/clang/Basic/AttrDocs.td
-ln -s $src/clang-files/SemaDeclAttr.cpp $clang/lib/Sema/SemaDeclAttr.cpp
 
 #install llvm files
 rm $llvmpass/S2LabPass.cpp
