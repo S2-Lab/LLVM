@@ -22,7 +22,8 @@ fi
 
 #get lld
 if [ ! -d lld ]; then
-wget --retry-connrefused --tries=100 releases.llvm.org/11.0.0/lld-11.0.0.src.tar.xz
+wget --retry-connrefused --tries=100 https://github.com/llvm/llvm-project/releases/download/llvmorg-11.0.0/lld-11.0.0.src.tar.xz
+
 tar -xf lld-11.0.0.src.tar.xz
 mv lld-11.0.0.src lld
 rm lld-11.0.0.src.tar.xz
