@@ -14,7 +14,7 @@ fi
 
 #get Clang
 if [ ! -d clang ]; then
-wget --retry-connrefused --tries=100. https://github.com/llvm/llvm-project/releases/download/llvmorg-11.0.0/clang-11.0.0.src.tar.xz
+wget --retry-connrefused --tries=100 https://github.com/llvm/llvm-project/releases/download/llvmorg-11.0.0/clang-11.0.0.src.tar.xz
 tar -xf clang-11.0.0.src.tar.xz
 mv clang-11.0.0.src clang
 rm clang-11.0.0.src.tar.xz
