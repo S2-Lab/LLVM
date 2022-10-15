@@ -1,0 +1,10 @@
+digraph { 
+ B -> C
+ main -> A
+ main -> C
+ main -> F
+ main -> E
+ F -> printf
+ C -> D
+ C -> E
+}

@@ -1,0 +1,1764 @@
+cscope 15 $HOME/test_cs510/llvm-pass-skeleton/skeleton               0000009189
+	@Skeleton.cpp
+
+1 
+	~<s¡»am
+>
+
+2 
+	~<¡ršg
+>
+
+4 
+	~"Îvm/ADT/D’£M­.h
+"
+
+5 
+	~"Îvm/ADT/Sm®lVeùÜ.h
+"
+
+6 
+	~"Îvm/ADT/S‘VeùÜ.h
+"
+
+8 
+	~"Îvm/IR/ModuË.h
+"
+
+9 
+	~"Îvm/IR/FunùiÚ.h
+"
+
+10 
+	~"Îvm/IR/BasicBlock.h
+"
+
+11 
+	~"Îvm/IR/In¡ruùiÚ.h
+"
+
+13 
+	~"Îvm/IR/C®lS™e.h
+"
+
+14 
+	~"Îvm/Pass.h
+"
+
+15 
+	~"Îvm/SuµÜt/¿w_o¡»am.h
+"
+
+17 
+	~"Îvm/IR/LegacyPassMªag”.h
+"
+
+18 
+	~"Îvm/T¿nsfÜms/IPO/PassMªag”Bud”.h
+"
+
+25 
+	#DEBUG
+
+
+	)
+
+27 
+usšg
+ 
+Çme¥aû
+ 
+	gÎvm
+;
+
+29 
+	gÇme¥aû
+ {
+
+31 
+	gS‘VeùÜ
+<
+	tFunùiÚ
+*> 
+	tFunùiÚLi¡
+;
+
+32 
+	gSm®lVeùÜ
+<
+	tBasicBlock
+*, 4> 
+	tBasicBlockLi¡
+;
+
+33 
+	gSm®lVeùÜ
+<
+	tBasicBlockLi¡
+*, 4> 
+	tBasicBlockTabË
+;
+
+34 
+	gD’£M­
+<
+	tBasicBlock
+*, 
+	tBasicBlockLi¡
+*> 
+	tBasicBlockT»e
+;
+
+36 
+	gCG¿phPass
+ : 
+public
+ 
+Îvm
+::
+ModuËPass
+
+
+38 
+ID
+;
+
+39 
+CG¿phPass
+(è: 
+ModuËPass
+(
+ID
+) { }
+
+40 ~
+CG¿phPass
+();
+
+42 
+	gD’£M­
+<
+	gFunùiÚ
+*, 
+	gFunùiÚLi¡
+*> 
+	gcg¿ph
+;
+
+43 
+	gD’£M­
+<
+	gFunùiÚ
+*, 
+	gBasicBlockT»e
+*> 
+	gcfg
+;
+
+44 
+	gD’£M­
+<
+	gFunùiÚ
+*, 
+	gBasicBlockTabË
+*> 
+	g·ths
+;
+
+45 
+	gD’£M­
+<
+	gV®ue
+*, V®ue*> 
+	gdefu£
+;
+
+46 
+vœtu®
+ 
+boŞ
+ 
+runOnModuË
+(
+ModuË
+ &
+m
+è
+	gov”ride
+;
+
+47 
+vœtu®
+ 
+´št
+(
+¿w_o¡»am
+ &
+out
+, cÚ¡ 
+ModuË
+* 
+m
+ècÚ¡ 
+	gov”ride
+;
+
+50 
+hªdËCFGFunùiÚ
+(
+FunùiÚ
+ &
+f
+);
+
+51 
+hªdËCFGBasicBlock
+(
+BasicBlock
+ &
+bb
+);
+
+54 
+hªdËP©hBasicBlock
+(
+FunùiÚ
+ *
+f
+, 
+BasicBlock
+ *
+bb
+,
+
+55 
+BasicBlockT»e
+ *
+bbT»e
+);
+
+58 
+hªdËCG¿phFunùiÚ
+(
+FunùiÚ
+ &
+f
+);
+
+59 
+hªdËCG¿phIn¡ruùiÚ
+(
+In¡ruùiÚ
+ &
+i
+);
+
+60 
+hªdËCG¿phC®lS™e
+(
+In¡ruùiÚ
+ &
+i
+);
+
+62 
+boŞ
+ 
+isFunùiÚPoš‹r
+(
+V®ue
+ *
+v
+);
+
+66 
+	gCG¿phPass
+::
+ID
+ = 0;
+
+70 
+»gi¡”CG¿phPass
+(cÚ¡ 
+PassMªag”Bud”
+ &,
+
+71 
+Ëgacy
+::
+PassMªag”Ba£
+ &
+PM
+) {
+
+72 
+PM
+.
+add
+(
+Ãw
+ 
+CG¿phPass
+());
+
+75 
+Regi¡”Snd¬dPas£s
+
+
+76 
+Regi¡”MyPass
+(
+PassMªag”Bud”
+::
+EP_E¬lyAsPossibË
+,
+
+77 
+»gi¡”CG¿phPass
+);
+
+82 
+boŞ
+
+
+83 
+	gCG¿phPass
+::
+	$runOnModuË
+(
+ModuË
+ &
+m
+)
+
+86 autØ&
+f
+ : 
+m
+) {
+
+87 
+	`hªdËCFGFunùiÚ
+(
+f
+);
+
+89 autØ&
+bb
+ : 
+f
+) {
+
+90 
+	`hªdËCFGBasicBlock
+(
+bb
+);
+
+93 
+	`´štf
+("hey..2 \n");
+
+96 autØ&
+fbPaœ
+ : 
+cfg
+)
+
+98 autØ*
+f
+ = 
+fbPaœ
+.
+fœ¡
+;
+
+99 autØ*
+bbT»e
+ = 
+fbPaœ
+.
+£cÚd
+;
+
+101 #ifdeà
+DEBUG
+
+
+105 autØ*
+bbTabË
+ = 
+Ãw
+ 
+	`BasicBlockTabË
+();
+
+106 
+	`as£¹
+(
+bbTabË
+ && "Out of memory!");
+
+107 
+·ths
+.
+	`š£¹
+(
+¡d
+::
+	`make_·œ
+(
+f
+, 
+bbTabË
+));
+
+109 ià(!
+f
+->
+	`em±y
+())
+
+111 autØ&
+bbRoÙ
+ = 
+f
+->
+	`g‘EÁryBlock
+();
+
+112 
+	`hªdËP©hBasicBlock
+(
+f
+, &
+bbRoÙ
+, 
+bbT»e
+);
+
+117 autØ&
+fbPaœ
+ : 
+·ths
+)
+
+119 autØ*
+f
+ = 
+fbPaœ
+.
+fœ¡
+;
+
+120 autØ*
+bbTabË
+ = 
+fbPaœ
+.
+£cÚd
+;
+
+122 
+	`hªdËCG¿phFunùiÚ
+(*
+f
+);
+
+123 #ifdeà
+DEBUG
+
+
+124 
+	`”rs
+(è<< "FunùiÚ: " << 
+f
+->
+	`g‘Name
+() << "\n";
+
+125 autØ
+i
+ = 0u;
+
+127 autØ&
+bbP©h
+ : *
+bbTabË
+)
+
+129 #ifdeà
+DEBUG
+
+
+130 
+	`”rs
+(è<< " P©h " << 
+i
+++ << ": \n";
+
+131 autØ
+j
+ = 0u;
+
+133 autØ&
+bb
+ : *
+bbP©h
+)
+
+135 #ifdeà
+DEBUG
+
+
+136 
+	`”rs
+(è<< " Block " << 
+j
+++ << ": \n";
+
+138 autØ&
+i
+ : *
+bb
+)
+
+140 
+	`hªdËCG¿phIn¡ruùiÚ
+(
+i
+);
+
+141 
+	`hªdËCG¿phC®lS™e
+(
+i
+);
+
+146  
+çl£
+;
+
+147 
+	}
+}
+
+150 
+	gCG¿phPass
+::
+	$hªdËCFGFunùiÚ
+(
+FunùiÚ
+ &
+f
+)
+
+152 autØ*
+bbT»e
+ = 
+Ãw
+ 
+	`BasicBlockT»e
+();
+
+153 
+	`as£¹
+(
+bbT»e
+ && "Out of memory!");
+
+154 
+cfg
+.
+	`š£¹
+(
+¡d
+::
+	`make_·œ
+(&
+f
+, 
+bbT»e
+));
+
+155 #ifdeà
+DEBUG
+
+
+158 
+	}
+}
+
+161 
+	gCG¿phPass
+::
+	$hªdËCFGBasicBlock
+(
+BasicBlock
+ &
+bb
+)
+
+163 autØ*
+f
+ = 
+bb
+.
+	`g‘P¬’t
+();
+
+164 autØ
+fbPaœ
+ = 
+cfg
+.
+	`fšd
+(
+f
+);
+
+165 
+	`as£¹
+((
+fbPaœ
+ !ğ
+cfg
+.
+	`’d
+()) && "Function has‚ot been‡dded!");
+
+166 autØ*
+bbT»e
+ = 
+fbPaœ
+->
+£cÚd
+;
+
+168 autØ*
+bbChd»n
+ = 
+Ãw
+ 
+	`BasicBlockLi¡
+();
+
+169 
+	`as£¹
+(
+bbChd»n
+ && "Out of memory!");
+
+170 
+bbT»e
+->
+	`š£¹
+(
+¡d
+::
+	`make_·œ
+(&
+bb
+, 
+bbChd»n
+));
+
+171 #ifdeà
+DEBUG
+
+
+175 autØ&
+i
+ : 
+bb
+)
+
+177 autØ*
+b¿nch
+ = 
+dyn_ÿ¡
+<
+B¿nchIn¡
+>(&
+i
+);
+
+178 ià(
+b¿nch
+)
+
+180 autØ
+j
+ = 0u; j < 
+b¿nch
+->
+	`g‘NumSucûssÜs
+(); j++)
+
+182 
+bbChd»n
+->
+	`push_back
+(
+b¿nch
+->
+	`g‘SucûssÜ
+(
+j
+));
+
+183 #ifdeà
+DEBUG
+
+
+189 
+	}
+}
+
+192 
+	gCG¿phPass
+::
+	$hªdËP©hBasicBlock
+(
+FunùiÚ
+ *
+f
+, 
+BasicBlock
+ *
+bb
+,
+
+193 
+BasicBlockT»e
+ *
+bbT»e
+)
+
+195 
+BasicBlockLi¡
+ 
+curP©h
+;
+
+197 ià(
+bbT»e
+)
+
+199 
+curP©h
+.
+	`push_back
+(
+bb
+);
+
+200 #ifdeà
+DEBUG
+
+
+204 autØ*
+bbChd»n
+ = (*
+bbT»e
+)[
+bb
+];
+
+205 autØ&
+bbChd
+ : *
+bbChd»n
+)
+
+206 
+	`hªdËP©hBasicBlock
+(
+f
+, 
+bbChd
+, 
+bbT»e
+);
+
+208 ià(
+bbChd»n
+->
+	`em±y
+())
+
+210 autØ*
+bbP©h
+ = 
+Ãw
+ 
+	`BasicBlockLi¡
+(
+curP©h
+);
+
+211 
+	`as£¹
+(
+bbP©h
+ && "Out of memory!");
+
+213 autØ
+fbPaœ
+ = 
+·ths
+.
+	`fšd
+(
+f
+);
+
+214 
+	`as£¹
+((
+fbPaœ
+ !ğ
+·ths
+.
+	`’d
+()) && "Function has‚ot been‡dded!");
+
+215 autØ*
+bbTabË
+ = 
+fbPaœ
+->
+£cÚd
+;
+
+216 
+	`as£¹
+(
+bbTabË
+ && "Pathable has‚ot been‡llocated!");
+
+218 
+bbTabË
+->
+	`push_back
+(
+bbP©h
+);
+
+219 #ifdeà
+DEBUG
+
+
+224 #ifdeà
+DEBUG
+
+
+227 
+curP©h
+.
+	`pİ_back
+();
+
+229 
+	}
+}
+
+232 
+	gCG¿phPass
+::
+	$hªdËCG¿phFunùiÚ
+(
+FunùiÚ
+ &
+f
+)
+
+234 autØ*
+ÿÎ“s
+ = 
+Ãw
+ 
+	`FunùiÚLi¡
+();
+
+235 
+	`as£¹
+(
+ÿÎ“s
+ && "Out of memory!");
+
+236 
+cg¿ph
+.
+	`š£¹
+(
+¡d
+::
+	`make_·œ
+(&
+f
+, 
+ÿÎ“s
+));
+
+237 
+	}
+}
+
+240 
+	gCG¿phPass
+::
+	$hªdËCG¿phIn¡ruùiÚ
+(
+In¡ruùiÚ
+ &
+i
+)
+
+242 ià(
+i§
+<
+AÎoÿIn¡
+>(&
+i
+))
+
+244 
+defu£
+[&
+i
+] = 
+NULL
+;
+
+245 #ifdeà
+DEBUG
+
+
+246 
+	`”rs
+(è<< "®loÿ: [" << 
+i
+ << "] <- [NULL]\n";
+
+249 ià(
+i§
+<
+StÜeIn¡
+>(&
+i
+))
+
+251 autØ*
+¡Üe
+ = 
+dyn_ÿ¡
+<
+StÜeIn¡
+>(&
+i
+);
+
+252 
+defu£
+[
+¡Üe
+->
+	`g‘Poš‹rO³¿nd
+()->
+	`¡rPoš‹rCa¡s
+()] =
+
+253 
+¡Üe
+->
+	`g‘V®ueO³¿nd
+()->
+	`¡rPoš‹rCa¡s
+();
+
+254 #ifdeà
+DEBUG
+
+
+255 
+	`”rs
+() << "store: [" <<
+
+256 *(
+¡Üe
+->
+	`g‘Poš‹rO³¿nd
+()->
+	`¡rPoš‹rCa¡s
+()) << "] <- ["
+
+257 << *(
+¡Üe
+->
+	`g‘V®ueO³¿nd
+()->
+	`¡rPoš‹rCa¡s
+()) << "]\n";
+
+260 ià(
+i§
+<
+LßdIn¡
+>(&
+i
+))
+
+262 autØ*
+lßd
+ = 
+dyn_ÿ¡
+<
+LßdIn¡
+>(&
+i
+);
+
+263 
+defu£
+[&
+i
+] = 
+lßd
+->
+	`g‘Poš‹rO³¿nd
+();
+
+264 #ifdeà
+DEBUG
+
+
+265 
+	`”rs
+(è<< "lßd: [" << 
+i
+ << "] <- ["
+
+266 << *
+lßd
+->
+	`g‘Poš‹rO³¿nd
+() << "]\n";
+
+269 ià(
+i§
+<
+B™Ca¡In¡
+>(&
+i
+))
+
+271 
+defu£
+[&
+i
+] = i.
+	`g‘O³¿nd
+(0);
+
+272 #ifdeà
+DEBUG
+
+
+273 
+	`”rs
+(è<< "b™ÿ¡: [" << 
+i
+ << "] <- [" << *i.
+	`g‘O³¿nd
+(0) << "]\n";
+
+276 ià(
+i§
+<
+G‘EËm’tPŒIn¡
+>(&
+i
+))
+
+278 autØ*
+g•
+ = 
+dyn_ÿ¡
+<
+G‘EËm’tPŒIn¡
+>(&
+i
+);
+
+279 
+defu£
+[&
+i
+] = 
+g•
+->
+	`g‘Poš‹rO³¿nd
+();
+
+280 #ifdeà
+DEBUG
+
+
+281 
+	`”rs
+(è<< "g‘–em’Œ: [" << 
+i
+ << "] <- [" <<
+
+282 *
+g•
+->
+	`g‘Poš‹rO³¿nd
+() << "]\n";
+
+285 
+	}
+}
+
+288 
+	gCG¿phPass
+::
+	$hªdËCG¿phC®lS™e
+(
+In¡ruùiÚ
+ &
+i
+)
+
+290 
+C®lS™e
+ 
+cs
+ = 
+	`C®lS™e
+(&
+i
+);
+
+293 ià(!
+cs
+.
+	`g‘In¡ruùiÚ
+())
+
+297 autØ*
+ÿÎ“
+ = 
+dyn_ÿ¡
+<
+FunùiÚ
+>(
+cs
+.
+	`g‘C®ËdV®ue
+()->
+	`¡rPoš‹rCa¡s
+());
+
+298 ià(!
+ÿÎ“
+)
+
+301 autØ*
+ÿÎ
+ = 
+dyn_ÿ¡
+<
+C®lIn¡
+>(&
+i
+);
+
+302 autØ*
+v®ue
+ = 
+ÿÎ
+->
+	`g‘C®ËdV®ue
+();
+
+303 #ifdeà
+DEBUG
+
+
+304 
+	`”rs
+(è<< "ÿÎ: [" << *
+v®ue
+ << "]\n";
+
+306 
+v®ue
+ && !
+i§
+<
+FunùiÚ
+>(value))
+
+308 #ifdeà
+DEBUG
+
+
+309 
+	`”rs
+(è<< " -- v®ue: [" << *
+v®ue
+->
+	`¡rPoš‹rCa¡s
+() << "]\n";
+
+311 
+v®ue
+ = 
+defu£
+[v®ue->
+	`¡rPoš‹rCa¡s
+()];
+
+313 
+	`as£¹
+(
+v®ue
+ && "Indirect callo‡‚on-function!");
+
+314 
+ÿÎ“
+ = 
+dyn_ÿ¡
+<
+FunùiÚ
+>(
+v®ue
+);
+
+318 #ifdeà
+DEBUG
+
+
+319 
+	`”rs
+(è<< "ÿÎ: [" << *
+ÿÎ“
+ << "]\n";
+
+324 autØ*
+ÿÎ”
+ = 
+dyn_ÿ¡
+<
+FunùiÚ
+>(
+cs
+.
+	`g‘C®Ër
+());
+
+325 autØ
+ccPaœ
+ = 
+cg¿ph
+.
+	`fšd
+(
+ÿÎ”
+);
+
+326 
+	`as£¹
+((
+ccPaœ
+ !ğ
+cg¿ph
+.
+	`’d
+()) && "Caller has‚ot been‡dded!");
+
+327 autØ*
+ÿÎ“s
+ = 
+ccPaœ
+->
+£cÚd
+;
+
+328 
+ÿÎ“s
+->
+	`š£¹
+(
+ÿÎ“
+);
+
+329 
+	}
+}
+
+331 
+boŞ
+
+
+332 
+	gCG¿phPass
+::
+	$isFunùiÚPoš‹r
+(
+V®ue
+ *
+v
+)
+
+334 ià(
+i§
+<
+FunùiÚ
+>(
+v
+))
+
+335  
+çl£
+;
+
+337 autØ*
+±
+ = 
+dyn_ÿ¡
+<
+Poš‹rTy³
+>(
+v
+->
+	`g‘Ty³
+());
+
+338 ià(!
+±
+)
+
+339  
+çl£
+;
+
+342 
+Ty³
+ *
+ty
+ = 
+±
+;
+
+343 
+i§
+<
+Poš‹rTy³
+>(
+ty
+))
+
+344 
+ty
+ = ((
+Poš‹rTy³
+ *éy)->
+	`g‘EËm’tTy³
+();
+
+346 ià(!
+i§
+<
+FunùiÚTy³
+>(
+ty
+))
+
+347  
+çl£
+;
+
+349  
+Œue
+;
+
+350 
+	}
+}
+
+356 
+	gCG¿phPass
+::
+	$´št
+(
+¿w_o¡»am
+ &
+out
+, cÚ¡ 
+ModuË
+* 
+m
+) const
+
+358 autØ&
+ccPaœ
+ : 
+cg¿ph
+)
+
+360 autØ*
+ÿÎ”
+ = 
+ccPaœ
+.
+fœ¡
+;
+
+361 autØ*
+ÿÎ“s
+ = 
+ccPaœ
+.
+£cÚd
+;
+
+367 
+¡d
+::
+¡ršg¡»am
+ 
+ss
+;
+
+368 
+ss
+ << "[" << 
+¡d
+::
+	`¡ršg
+(
+ÿÎ”
+->
+	`g‘Name
+()) << "] : ";
+
+369 autØ&
+ÿÎ“
+ : *
+ÿÎ“s
+)
+
+370 
+ss
+ << "[" << 
+¡d
+::
+	`¡ršg
+(
+ÿÎ“
+->
+	`g‘Name
+()) << "], ";
+
+371 
+¡d
+::
+¡ršg
+ 
+s
+ = 
+ss
+.
+	`¡r
+();
+
+372 ià(!
+ÿÎ“s
+->
+	`em±y
+())
+
+373 
+s
+.
+	`”a£
+(s.
+	`begš
+(è+ s.
+	`rfšd
+(','), s.
+	`’d
+());
+
+374 
+out
+ << 
+s
+ << "\n";
+
+376 
+	}
+}
+
+378 
+	gCG¿phPass
+::~
+	$CG¿phPass
+()
+
+380 autØ&
+ccPaœ
+ : 
+cg¿ph
+)
+
+382 autØ*
+ÿÎ“s
+ = 
+ccPaœ
+.
+£cÚd
+;
+
+383 ià(
+ÿÎ“s
+)
+
+384 
+d–‘e
+ 
+ÿÎ“s
+;
+
+387 autØ&
+fbPaœ
+ : 
+·ths
+)
+
+389 autØ*
+bbTabË
+ = 
+fbPaœ
+.
+£cÚd
+;
+
+390 ià(
+bbTabË
+)
+
+392 autØ&
+bbP©h
+ : *
+bbTabË
+)
+
+394 ià(
+bbP©h
+)
+
+395 
+d–‘e
+ 
+bbP©h
+;
+
+397 
+d–‘e
+ 
+bbTabË
+;
+
+401 autØ&
+fbPaœ
+ : 
+cfg
+)
+
+403 autØ*
+bbT»e
+ = 
+fbPaœ
+.
+£cÚd
+;
+
+404 ià(
+bbT»e
+)
+
+406 autØ&
+bbPaœ
+ : *
+bbT»e
+)
+
+408 autØ*
+bbChd»n
+ = 
+bbPaœ
+.
+£cÚd
+;
+
+409 ià(
+bbChd»n
+)
+
+410 
+d–‘e
+ 
+bbChd»n
+;
+
+412 
+d–‘e
+ 
+bbT»e
+;
+
+415 
+	}
+}
+
+	@backup.cpp
+
+1 
+	~"Îvm/Pass.h
+"
+
+2 
+	~"Îvm/IR/FunùiÚ.h
+"
+
+3 
+	~"Îvm/SuµÜt/¿w_o¡»am.h
+"
+
+4 
+	~"Îvm/IR/LegacyPassMªag”.h
+"
+
+5 
+	~"Îvm/T¿nsfÜms/IPO/PassMªag”Bud”.h
+"
+
+7 
+usšg
+ 
+Çme¥aû
+ 
+	gÎvm
+;
+
+9 
+	gÇme¥aû
+ {
+
+10 
+	gSk–‘ÚPass
+ : 
+public
+ 
+FunùiÚPass
+ {
+
+11 
+ID
+;
+
+12 
+Sk–‘ÚPass
+(è: 
+FunùiÚPass
+(
+ID
+) {}
+
+14 
+vœtu®
+ 
+boŞ
+ 
+runOnFunùiÚ
+(
+FunùiÚ
+ &
+F
+) {
+
+15 
+”rs
+(è<< "I saw‡ funùiÚ c®Ëd " << 
+F
+.
+g‘Name
+() << "!\n";
+
+16  
+	gçl£
+;
+
+21 
+	gSk–‘ÚPass
+::
+ID
+ = 0;
+
+25 
+	$»gi¡”Sk–‘ÚPass
+(cÚ¡ 
+PassMªag”Bud”
+ &,
+
+26 
+Ëgacy
+::
+PassMªag”Ba£
+ &
+PM
+) {
+
+27 
+PM
+.
+	`add
+(
+Ãw
+ 
+	`Sk–‘ÚPass
+());
+
+28 
+	}
+}
+
+29 
+Regi¡”Snd¬dPas£s
+
+
+30 
+Regi¡”MyPass
+(
+PassMªag”Bud”
+::
+EP_E¬lyAsPossibË
+,
+
+31 
+»gi¡”Sk–‘ÚPass
+);
+
+	@
+1
+.
+1
+/usr/include
+2
+24
+Skeleton.cpp
+backup.cpp
