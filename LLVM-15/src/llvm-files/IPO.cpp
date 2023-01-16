@@ -59,6 +59,7 @@ void llvm::initializeIPO(PassRegistry &Registry) {
   initializeStripNonDebugSymbolsPass(Registry);
   initializeBarrierNoopPass(Registry);
   initializeEliminateAvailableExternallyLegacyPassPass(Registry);
+  initializeIPCSanLTOPass(Registry);
 }
 
 void LLVMInitializeIPO(LLVMPassRegistryRef R) {

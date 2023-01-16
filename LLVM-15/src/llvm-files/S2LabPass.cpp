@@ -19,6 +19,7 @@
 
 #include <cxxabi.h>
 #include <set>
+#include <map>
 
 #define MAXLEN 10000
 

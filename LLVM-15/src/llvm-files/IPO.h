@@ -236,6 +236,8 @@ enum class PassSummaryAction {
 /// This pass export CFI checks for use by external modules.
 ModulePass *createCrossDSOCFIPass();
 
+ModulePass *createIPCSanLTOPass();
+
 /// This pass splits globals into pieces for the benefit of whole-program
 /// devirtualization and control-flow integrity.
 ModulePass *createGlobalSplitPass();
