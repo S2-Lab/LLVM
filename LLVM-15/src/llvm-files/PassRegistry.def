@@ -154,6 +154,13 @@ MODULE_PASS_WITH_PARAMS("asan-module",
                         },
                         parseASanPassOptions,
                         "kernel")
+MODULE_PASS_WITH_PARAMS("s2lab",
+                        "S2LabSanitizerPass",
+                        [](S2LabSanitizerPassOptions Opts) {
+                          return S2LabSanitizerPass(Opts);
+                        },
+                        parseS2LabPassOptions,
+                        "kernel")
 #undef MODULE_PASS_WITH_PARAMS
 
 #ifndef CGSCC_ANALYSIS

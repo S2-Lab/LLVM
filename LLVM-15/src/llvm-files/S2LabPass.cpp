@@ -16,6 +16,7 @@
 #include "llvm/Analysis/MemoryBuiltins.h"
 #include "llvm/Support/raw_ostream.h"
 #include "llvm/InitializePasses.h"
+#include "llvm/Transforms/Instrumentation/s2lab.h"
 
 #include <cxxabi.h>
 #include <set>
@@ -68,4 +69,10 @@ INITIALIZE_PASS(S2Lab, "S2Lab", "S2LabPass: s2lab default pass", false, false)
 
 ModulePass *llvm::createS2LabPass() {
   return new S2Lab();
+}
+
+PreservedAnalyses S2LabSanitizerPass::run(Module &M,
+                                              ModuleAnalysisManager &MAM) {
+  llvm::errs() << "Hi S2Lab pass\n";
+  return PreservedAnalyses::all();
 }

@@ -442,8 +442,8 @@ std::string tools::getCPUName(const Driver &D, const ArgList &Args,
     return sparc::getSparcTargetCPU(D, Args, T);
 
   case llvm::Triple::x86:
-  case llvm::Triple::x86_64:
-    return x86::getX86TargetCPU(D, Args, T);
+  case llvm::Triple::x86_64:{
+    return x86::getX86TargetCPU(D, Args, T);}
 
   case llvm::Triple::hexagon:
     return "hexagon" +
@@ -862,7 +862,7 @@ collectSanitizerRuntimes(const ToolChain &TC, const ArgList &Args,
   const SanitizerArgs &SanArgs = TC.getSanitizerArgs(Args);
   // Collect shared runtimes.
   if (SanArgs.needsSharedRt()) {
-    if (SanArgs.needsAsanRt() && SanArgs.linkRuntimes()) {
+    if (SanArgs.needsAsanRt() && SanArgs.linkRuntimes()) { 
       SharedRuntimes.push_back("asan");
       if (!Args.hasArg(options::OPT_shared) && !TC.getTriple().isAndroid())
         HelperStaticRuntimes.push_back("asan-preinit");
@@ -894,6 +894,10 @@ collectSanitizerRuntimes(const ToolChain &TC, const ArgList &Args,
       if (!Args.hasArg(options::OPT_shared))
         HelperStaticRuntimes.push_back("hwasan-preinit");
     }
+    if (SanArgs.needsS2labRt() && SanArgs.linkRuntimes())
+    {
+      SharedRuntimes.push_back("s2lab");
+    }
   }
 
   // The stats_client library is also statically linked into DSOs.
@@ -902,7 +906,9 @@ collectSanitizerRuntimes(const ToolChain &TC, const ArgList &Args,
 
   // Always link the static runtime regardless of DSO or executable.
   if (SanArgs.needsAsanRt())
+  {
     HelperStaticRuntimes.push_back("asan_static");
+  }
 
   // Collect static runtimes.
   if (Args.hasArg(options::OPT_shared)) {
@@ -917,6 +923,10 @@ collectSanitizerRuntimes(const ToolChain &TC, const ArgList &Args,
     StaticRuntimes.push_back("asan");
     if (SanArgs.linkCXXRuntimes())
       StaticRuntimes.push_back("asan_cxx");
+  }
+
+  if (!SanArgs.needsSharedRt() && SanArgs.needsS2labRt() && SanArgs.linkRuntimes()) {
+    StaticRuntimes.push_back("s2lab");
   }
 
   if (!SanArgs.needsSharedRt() && SanArgs.needsMemProfRt() &&

@@ -74,10 +74,13 @@ public:
   bool needsSharedRt() const { return SharedRuntime; }
 
   bool needsMemProfRt() const { return NeedsMemProfRt; }
-  bool needsAsanRt() const { return Sanitizers.has(SanitizerKind::Address); }
+  bool needsAsanRt() const { 
+    return Sanitizers.has(SanitizerKind::Address); }
   bool needsHwasanRt() const {
     return Sanitizers.has(SanitizerKind::HWAddress);
   }
+  bool needsS2labRt() const {
+    return Sanitizers.has(SanitizerKind::S2Lab); }
   bool needsHwasanAliasesRt() const {
     return needsHwasanRt() && HwasanUseAliases;
   }

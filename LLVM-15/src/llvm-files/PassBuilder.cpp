@@ -248,6 +248,9 @@
 #include "llvm/Transforms/Vectorize/LoopVectorize.h"
 #include "llvm/Transforms/Vectorize/SLPVectorizer.h"
 #include "llvm/Transforms/Vectorize/VectorCombine.h"
+#include "llvm/Transforms/Instrumentation/s2lab.h"
+// #include “llvm/Support/raw_os_ostream.h”
+// #include “llvm/Support/FileSystem.h”
 
 using namespace llvm;
 
@@ -651,6 +654,24 @@ Expected<HWAddressSanitizerOptions> parseHWASanPassOptions(StringRef Params) {
     } else {
       return make_error<StringError>(
           formatv("invalid HWAddressSanitizer pass parameter '{0}' ", ParamName)
+              .str(),
+          inconvertibleErrorCode());
+    }
+  }
+  return Result;
+}
+
+Expected<S2LabSanitizerPassOptions> parseS2LabPassOptions(StringRef Params) {
+  S2LabSanitizerPassOptions Result;
+  while (!Params.empty()) {
+    StringRef ParamName;
+    std::tie(ParamName, Params) = Params.split(';');
+
+    if (ParamName == "kernel") {
+      Result.CompileKernel = true;
+    } else {
+      return make_error<StringError>(
+          formatv("invalid AddressSanitizer pass parameter '{0}' ", ParamName)
               .str(),
           inconvertibleErrorCode());
     }

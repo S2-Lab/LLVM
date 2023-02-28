@@ -28,6 +28,7 @@ rm $clang/lib/Driver/ToolChain.cpp
 rm $clang/lib/Driver/ToolChains/Darwin.cpp
 rm $clang/lib/Driver/ToolChains/CommonArgs.cpp
 rm $clang/lib/CodeGen/BackendUtil.cpp
+rm $clang/lib/Driver/ToolChains/Linux.cpp
 
 ln -s $src/clang-files/SanitizerArgs.h $clang/include/clang/Driver/SanitizerArgs.h
 ln -s $src/clang-files/Sanitizers.def $clang/include/clang/Basic/Sanitizers.def
@@ -36,6 +37,7 @@ ln -s $src/clang-files/ToolChain.cpp $clang/lib/Driver/ToolChain.cpp
 ln -s $src/clang-files/Darwin.cpp $clang/lib/Driver/ToolChains/Darwin.cpp
 ln -s $src/clang-files/CommonArgs.cpp $clang/lib/Driver/ToolChains/CommonArgs.cpp
 ln -s $src/clang-files/BackendUtil.cpp $clang/lib/CodeGen/BackendUtil.cpp
+ln -s $src/clang-files/Linux.cpp $clang/lib/Driver/ToolChains/Linux.cpp
 
 #install llvm files
 rm $llvmpass/S2LabPass.cpp
@@ -53,6 +55,7 @@ rm $llvm/lib/Passes/PassRegistry.def
 rm $llvm/lib/Transforms/IPO/IPCSanLTOPass.cpp
 rm $llvm/include/llvm/Transforms/IPO/IPCSanLTOPass.h
 rm $llvm/include/llvm/Transforms/IPO.h
+rm $llvm/include/llvm/Transforms/Instrumentation/s2lab.h
 
 ln -s $src/llvm-files/S2LabPass.cpp $llvmpass
 ln -s $src/llvm-files/InitializePasses.h $llvminc
@@ -69,17 +72,18 @@ ln -s $src/llvm-files/PassRegistry.def $llvm/lib/Passes/PassRegistry.def
 ln -s $src/llvm-files/IPCSanLTOPass.cpp $llvm/lib/Transforms/IPO/IPCSanLTOPass.cpp
 ln -s $src/llvm-files/IPCSanLTOPass.h $llvm/include/llvm/Transforms/IPO/IPCSanLTOPass.h
 ln -s $src/llvm-files/IPO.h $llvm/include/llvm/Transforms/IPO.h
+ln -s $src/llvm-files/s2lab.h $llvm/include/llvm/Transforms/Instrumentation/s2lab.h
 
 #include compiler-rt file
 rm $runtime/cmake/config-ix.cmake
 rm $runtime/lib/CMakeLists.txt
 rm $runtime/lib/s2lab/CMakeLists.txt
 rm $runtime/lib/s2lab/s2lab.cc
-rm $runtime/lib/s2lab/s2lab.h
+# rm $runtime/lib/s2lab/s2lab.h
 
 ln -s $src/compiler-rt-files/config-ix.cmake $runtime/cmake/config-ix.cmake
 ln -s $src/compiler-rt-files/lib_cmakelists.txt $runtime/lib/CMakeLists.txt
 mkdir $runtime/lib/s2lab
 ln -s $src/compiler-rt-files/lib_s2lab_cmakelists.txt $runtime/lib/s2lab/CMakeLists.txt
 ln -s $src/compiler-rt-files/s2lab.cc $runtime/lib/s2lab/s2lab.cc
-ln -s $src/compiler-rt-files/s2lab.h $runtime/lib/s2lab/s2lab.h
+# ln -s $src/compiler-rt-files/s2lab.h $runtime/lib/s2lab/s2lab.h

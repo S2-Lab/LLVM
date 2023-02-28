@@ -86,6 +86,7 @@
 #include "llvm/Transforms/Utils/ModuleUtils.h"
 #include "llvm/Transforms/Utils/NameAnonGlobals.h"
 #include "llvm/Transforms/Utils/SymbolRewriter.h"
+#include "llvm/Transforms/Instrumentation/s2lab.h"
 #include <memory>
 using namespace clang;
 using namespace llvm;
@@ -694,6 +695,14 @@ static void addSanitizers(const Triple &TargetTriple,
     HWASanPass(SanitizerKind::HWAddress, false);
     HWASanPass(SanitizerKind::KernelHWAddress, true);
 
+    auto S2LabPass = [&](SanitizerMask Mask, bool CompileKernel) {
+      if (LangOpts.Sanitize.has(Mask)){
+        bool Recover = CodeGenOpts.SanitizeRecover.has(Mask);
+        MPM.addPass(S2LabSanitizerPass({CompileKernel, Recover, CodeGenOpts.OptimizationLevel == 0}));
+      }
+    };
+    S2LabPass(SanitizerKind::S2Lab, false);
+
     if (LangOpts.Sanitize.has(SanitizerKind::DataFlow)) {
       MPM.addPass(DataFlowSanitizerPass(LangOpts.NoSanitizeFiles));
     }
@@ -897,7 +906,9 @@ void EmitAssemblyHelper::RunOptimizationPipeline(
     // Don't add sanitizers if we are here from ThinLTO PostLink. That already
     // done on PreLink stage.
     if (!IsThinLTOPostLink)
+    {
       addSanitizers(TargetTriple, CodeGenOpts, LangOpts, PB);
+    }
 
     if (Optional<GCOVOptions> Options = getGCOVOptions(CodeGenOpts, LangOpts))
       PB.registerPipelineStartEPCallback(

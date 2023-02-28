@@ -40,6 +40,7 @@
 #include "llvm/Support/TargetParser.h"
 #include "llvm/Support/VersionTuple.h"
 #include "llvm/Support/VirtualFileSystem.h"
+
 #include <cassert>
 #include <cstddef>
 #include <cstring>
@@ -1069,7 +1070,6 @@ bool ToolChain::addFastMathRuntimeIfAvailable(const ArgList &Args,
 SanitizerMask ToolChain::getSupportedSanitizers() const {
   // Return sanitizers which don't require runtime support and are not
   // platform dependent.
-
   SanitizerMask Res =
       (SanitizerKind::Undefined & ~SanitizerKind::Vptr &
        ~SanitizerKind::Function) |
