@@ -894,10 +894,6 @@ collectSanitizerRuntimes(const ToolChain &TC, const ArgList &Args,
       if (!Args.hasArg(options::OPT_shared))
         HelperStaticRuntimes.push_back("hwasan-preinit");
     }
-    if (SanArgs.needsS2labRt() && SanArgs.linkRuntimes())
-    {
-      SharedRuntimes.push_back("s2lab");
-    }
   }
 
   // The stats_client library is also statically linked into DSOs.
@@ -923,10 +919,6 @@ collectSanitizerRuntimes(const ToolChain &TC, const ArgList &Args,
     StaticRuntimes.push_back("asan");
     if (SanArgs.linkCXXRuntimes())
       StaticRuntimes.push_back("asan_cxx");
-  }
-
-  if (!SanArgs.needsSharedRt() && SanArgs.needsS2labRt() && SanArgs.linkRuntimes()) {
-    StaticRuntimes.push_back("s2lab");
   }
 
   if (!SanArgs.needsSharedRt() && SanArgs.needsMemProfRt() &&

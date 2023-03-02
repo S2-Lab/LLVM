@@ -3221,7 +3221,6 @@ SanitizerMask Darwin::getSupportedSanitizers() const {\
   Res |= SanitizerKind::FuzzerNoLink;
   Res |= SanitizerKind::Function;
   Res |= SanitizerKind::ObjCCast;
-  Res |= SanitizerKind::S2Lab;
 
   // Prior to 10.9, macOS shipped a version of the C++ standard library without
   // C++11 support. The same is true of iOS prior to version 5. These OS'es are

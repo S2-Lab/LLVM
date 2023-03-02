@@ -123,8 +123,6 @@ struct InstrProfOptions {
   InstrProfOptions() = default;
 };
 
-ModulePass *createS2LabPass();
-
 // Insert DataFlowSanitizer (dynamic data flow analysis) instrumentation
 ModulePass *createDataFlowSanitizerLegacyPassPass(
     const std::vector<std::string> &ABIListFiles = std::vector<std::string>());
