@@ -9,7 +9,7 @@ fuzzan:
 	  -DCMAKE_BUILD_TYPE=Release \
 	  -DCMAKE_C_COMPILER=clang \
 	  -DCMAKE_CXX_COMPILER=clang++ \
-	  -DLLVM_ENABLE_PROJECTS="llvm;clang;compiler-rt" \
+	  -DLLVM_ENABLE_PROJECTS="llvm;clang;compiler-rt;lld" \
 	  -DLLVM_ENABLE_ASSERTIONS=OFF \
 	  -DCMAKE_EXPORT_COMPILE_COMMANDS=ON \
           -DLLVM_BINUTILS_INCDIR="${BUILD_DIR}/../binutils/include" \
